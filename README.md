@@ -1,9 +1,7 @@
-# My GitHub Cat 🐾
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/gist/adityasv14/06772719717d12f378037380a672778e/raw/949176378e908670c363f53874382f155681c2f9/cat_purring.gif" width="200" />
   <br>
-  <a href="https://github.com/YOUR_USERNAME/YOUR_USERNAME/issues/new?title=pet-the-cat&body=I+am+petting+the+cat+right+now.">
+  <a href="../../issues/new?title=pet-the-cat&body=I+am+petting+the+cat+right+now.">
     <img src="https://img.shields.io/badge/✋-PET_THE_CAT-blueviolet?style=for-the-badge" alt="Pet the cat"/>
   </a>
   <br>
