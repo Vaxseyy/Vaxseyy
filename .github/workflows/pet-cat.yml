@@ -15,33 +15,31 @@ jobs:
 
       - name: Update Cat Logic
         run: |
-          # 1. Get current count from file
+          # 1. Math
           COUNT=$(cat cat-stats.txt || echo 0)
           NEW_COUNT=$((COUNT + 1))
           echo $NEW_COUNT > cat-stats.txt
           
-          # 2. Evolution Logic
-          MOOD="Purring 🐾"
+          # 2. Logic
+          MOOD="Happy! 😸"
           FORM="Kitten"
-          if [ $NEW_COUNT -gt 50 ]; then MOOD="Extremely Happy ✨"; FORM="Large Cat"; fi
-          if [ $NEW_COUNT -gt 20 ]; then MOOD="Vibing 😎"; FORM="Teenager Cat"; fi
+          if [ $NEW_COUNT -gt 20 ]; then MOOD="Purring 🐾"; FORM="Cool Cat"; fi
           
-          # 3. Update README using the markers
-          # This replaces everything between the comments
-          sed -i "s|.*|$NEW_COUNT|" README.md
-          sed -i "s|.*|$MOOD|" README.md
-          sed -i "s|.*|$FORM|" README.md
-          sed -i "s|.*|@${{ github.actor }}|" README.md
+          # 3. Targeted Replacement (The 's' command now looks for the specific tags)
+          sed -i "s|.*|$NEW_COUNT|g" README.md
+          sed -i "s|.*|$MOOD|g" README.md
+          sed -i "s|.*|$FORM|g" README.md
+          sed -i "s|.*|@${{ github.actor }}|g" README.md
 
       - name: Commit and Push
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
+          git add README.md cat-stats.txt
           git commit -m "🐾 Pet count updated to $NEW_COUNT"
           git push
 
       - name: Close Issue
-        run: gh issue close ${{ github.event.issue.number }} --comment "mrrrp! thanks for the pets @${{ github.actor }}!"
+        run: gh issue close ${{ github.event.issue.number }} --comment "Thanks for the pet, @${{ github.actor }}!"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
