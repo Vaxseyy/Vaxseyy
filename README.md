@@ -39,9 +39,9 @@
 <br><br>
 
 <!-- Stats with Colorful Badges -->
-<img src="https://img.shields.io/badge/😊_Mood-<!-- MOOD_START -->Sleepy<!-- MOOD_END -->-FF6B9D?style=for-the-badge&logo=statuspage&logoColor=white" />
-<img src="https://img.shields.io/badge/🐾_Pets-<!-- PETS_START -->0<!-- PETS_END -->-4ECDC4?style=for-the-badge&logoColor=white" />
-<img src="https://img.shields.io/badge/✨_Form-<!-- FORM_START -->Kitten<!-- FORM_END -->-FFD93D?style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/😊_Mood-Sleepy-FF6B9D?style=for-the-badge&logo=statuspage&logoColor=white" />
+<img src="https://img.shields.io/badge/🐾_Pets-0-4ECDC4?style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/✨_Form-Kitten-FFD93D?style=for-the-badge&logoColor=white" />
 
 <br><br>
 
@@ -133,3 +133,78 @@
 <br>
 
 ---
+
+<br>
+
+## 🚀 **ABOUT ME**
+
+<br>
+
+<!-- Tech Stack with Colorful Icons -->
+<img src="https://skillicons.dev/icons?i=js,ts,react,nodejs,python,java,cpp,git,docker,vscode,figma,firebase&perline=6&theme=dark" />
+
+<br><br>
+
+<!-- Stats Cards with Gradient -->
+<img src="https://github-readme-stats.vercel.app/api?username=Vaxseyy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6366F1&icon_color=4ECDC4&text_color=FFFFFF&ring_color=FF6B9D" height="170" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Vaxseyy&theme=tokyonight&hide_border=true&background=0D1117&stroke=6366F1&ring=4ECDC4&fire=FF6B9D&currStreakLabel=FFFFFF" height="170" />
+
+<br><br>
+
+<!-- Top Languages -->
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vaxseyy&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6366F1&text_color=FFFFFF" height="170" />
+
+<br><br>
+
+<!-- Activity Graph -->
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Vaxseyy&custom_title=Vaxseyy's%20Contribution%20Graph&bg_color=0D1117&color=6366F1&line=4ECDC4&point=FF6B9D&area_color=6366F1&title_color=FFFFFF&area=true" width="95%" />
+
+<br><br>
+
+<!-- Trophies -->
+<img src="https://github-profile-trophy.vercel.app/?username=Vaxseyy&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" width="95%" />
+
+<br><br>
+
+---
+
+<br>
+
+## 🔗 **CONNECT WITH ME**
+
+<br>
+
+<a href="https://github.com/Vaxseyy">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="35"/>
+</a>
+<a href="https://discord.com">
+  <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="35"/>
+</a>
+<a href="#">
+  <img src="https://img.shields.io/badge/Portfolio-6366F1?style=for-the-badge&logo=google-chrome&logoColor=white" height="35"/>
+</a>
+<a href="#">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="35"/>
+</a>
+<a href="#">
+  <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" height="35"/>
+</a>
+
+<br><br>
+
+<!-- Profile Views Counter -->
+<img src="https://komarev.com/ghpvc/?username=Vaxseyy&color=6366F1&style=for-the-badge&label=PROFILE+VIEWS" />
+
+<br><br>
+
+<!-- Support -->
+<a href="https://www.buymeacoffee.com/vaxseyy">
+  <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" height="35"/>
+</a>
+
+<br><br>
+
+<!-- Animated Footer -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" />
+
+</div>
