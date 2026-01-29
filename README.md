@@ -40,7 +40,7 @@
 
 <!-- Stats with Colorful Badges -->
 <img src="https://img.shields.io/badge/😊_Mood-Sleepy-FF6B9D?style=for-the-badge&logo=statuspage&logoColor=white" />
-<img src="https://img.shields.io/badge/🐾_Pets-0-4ECDC4?style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/🐾_Pets-8-4ECDC4?style=for-the-badge&logoColor=white" />
 <img src="https://img.shields.io/badge/✨_Form-Kitten-FFD93D?style=for-the-badge&logoColor=white" />
 
 <br><br>
