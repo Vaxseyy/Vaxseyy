@@ -84,43 +84,43 @@
 
 <table>
 <tr>
-<td align="center" width="140">
-<img width="70" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Egg.png" alt="Egg"/>
+<td align="center" width="160">
+<img width="80" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Egg.png" alt="Egg"/>
 <br><br>
 <img src="https://img.shields.io/badge/0_pets-Kitten-FFB6C1?style=for-the-badge" />
 <br><sub><i>😴 Sleepy</i></sub>
 </td>
-<td align="center" width="140">
-<img width="70" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Hatching%20Chick.png" alt="Hatching"/>
+<td align="center" width="160">
+<img width="80" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Hatching%20Chick.png" alt="Hatching"/>
 <br><br>
 <img src="https://img.shields.io/badge/20_pets-Young_Cat-87CEEB?style=for-the-badge" />
 <br><sub><i>🎮 Playful</i></sub>
 </td>
-<td align="center" width="140">
-<img width="70" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat%20Face.png" alt="Cat"/>
+<td align="center" width="160">
+<img width="80" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat%20Face.png" alt="Cat"/>
 <br><br>
 <img src="https://img.shields.io/badge/50_pets-Adult_Cat-98FB98?style=for-the-badge" />
 <br><sub><i>😌 Content</i></sub>
 </td>
 </tr>
 <tr>
-<td align="center" width="140">
-<img width="70" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Cat%20with%20Smiling%20Eyes.png" alt="Happy Cat"/>
+<td align="center" width="160">
+<img width="80" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Cat%20with%20Smiling%20Eyes.png" alt="Happy Cat"/>
 <br><br>
 <img src="https://img.shields.io/badge/100_pets-Happy_Cat-FFD700?style=for-the-badge" />
 <br><sub><i>😸 Joyful</i></sub>
 </td>
-<td align="center" width="140">
-<img width="70" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Lion.png" alt="Lion"/>
+<td align="center" width="160">
+<img width="80" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Lion.png" alt="Lion"/>
 <br><br>
 <img src="https://img.shields.io/badge/200_pets-Majestic_Lion-FF6347?style=for-the-badge" />
 <br><sub><i>👑 Proud</i></sub>
 </td>
-<td align="center" width="140">
-<img width="70" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Dizzy.png" alt="Cosmic"/>
+<td align="center" width="160">
+<img width="80" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Hearts.png" alt="Max Level"/>
 <br><br>
-<img src="https://img.shields.io/badge/500_pets-Cosmic_Cat-9370DB?style=for-the-badge" />
-<br><sub><i>✨ Transcendent</i></sub>
+<img src="https://img.shields.io/badge/∞-MAX_LEVEL!-9370DB?style=for-the-badge" />
+<br><sub><i>🌟 Ultimate Form</i></sub>
 </td>
 </tr>
 </table>
