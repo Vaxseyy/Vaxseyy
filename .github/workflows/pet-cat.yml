@@ -1,0 +1,36 @@
+name: Pet the Cat
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  update-cat:
+    if: contains(github.event.issue.title, 'pet-the-cat')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Pet Count
+        run: |
+          COUNT=$(cat cat-stats.txt || echo 0)
+          NEW_COUNT=$((COUNT + 1))
+          echo $NEW_COUNT > cat-stats.txt
+          
+          # This replaces the number inside the <b></b> tags in your README
+          sed -i "s/petted <b>.*<\/b>/petted <b>$NEW_COUNT<\/b>/" README.md
+        
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "🐾 The cat was petted!"
+          git push
+
+      - name: Close Issue
+        run: gh issue close ${{ github.event.issue.number }} --comment "Purrr! Thanks for the pets!"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
