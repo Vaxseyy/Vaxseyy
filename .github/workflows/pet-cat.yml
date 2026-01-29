@@ -13,24 +13,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update Pet Count
+      - name: Update Cat Logic
         run: |
+          # Get current count
           COUNT=$(cat cat-stats.txt || echo 0)
           NEW_COUNT=$((COUNT + 1))
           echo $NEW_COUNT > cat-stats.txt
           
-          # This replaces the number inside the <b></b> tags in your README
-          sed -i "s/petted <b>.*<\/b>/petted <b>$NEW_COUNT<\/b>/" README.md
-        
+          # Evolution Logic
+          MOOD="Purring 🐾"
+          FORM="Kitten"
+          if [ $NEW_COUNT -gt 100 ]; then MOOD="Godlike ⚡"; FORM="Ancient Behemoth";
+          elif [ $NEW_COUNT -gt 50 ]; then MOOD="Extremely Happy ✨"; FORM="Large Cat";
+          elif [ $NEW_COUNT -gt 20 ]; then MOOD="Vibing 😎"; FORM="Teenager Cat"; fi
+          
+          # Update the README
+          sed -i "s/Pets Received: <b>.*<\/b>/Pets Received: <b>$NEW_COUNT<\/b>/" README.md
+          sed -i "s/**Mood:** <b>.*<\/b>/**Mood:** <b>$MOOD<\/b>/" README.md
+          sed -i "s/**Current Form:** <b>.*<\/b>/**Current Form:** <b>$FORM<\/b>/" README.md
+          sed -i "s/_Last Love from: .*_/_Last Love from: @${{ github.actor }}_/" README.md
+
       - name: Commit and Push
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'Cat-Bot'
+          git config --global user.email 'actions@github.com'
           git add .
-          git commit -m "🐾 The cat was petted!"
+          git commit -m "🐾 Pet count updated to $NEW_COUNT by @${{ github.actor }}"
           git push
 
       - name: Close Issue
-        run: gh issue close ${{ github.event.issue.number }} --comment "Purrr! Thanks for the pets!"
+        run: gh issue close ${{ github.event.issue.number }} --comment "mrrrp! thanks for the pets @${{ github.actor }}!"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
