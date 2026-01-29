@@ -1,45 +1,153 @@
 name: Pet the Cat
+
 on:
   issues:
     types: [opened]
 
 jobs:
-  update-cat:
+  pet-cat:
     if: contains(github.event.issue.title, 'pet-the-cat')
     runs-on: ubuntu-latest
+    
     permissions:
       contents: write
       issues: write
+    
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Update Cat Logic
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Read and update pet count
+        id: update_count
         run: |
-          # 1. Math
-          COUNT=$(cat cat-stats.txt || echo 0)
-          NEW_COUNT=$((COUNT + 1))
-          echo $NEW_COUNT > cat-stats.txt
+          # Create stats file if it doesn't exist
+          if [ ! -f cat-stats.txt ]; then
+            echo "0" > cat-stats.txt
+          fi
           
-          # 2. Logic
-          MOOD="Happy! 😸"
-          FORM="Kitten"
-          if [ $NEW_COUNT -gt 20 ]; then MOOD="Purring 🐾"; FORM="Cool Cat"; fi
+          # Read current count
+          CURRENT_COUNT=$(cat cat-stats.txt)
+          NEW_COUNT=$((CURRENT_COUNT + 1))
           
-          # 3. Targeted Replacement (The 's' command now looks for the specific tags)
-          sed -i "s|.*|$NEW_COUNT|g" README.md
-          sed -i "s|.*|$MOOD|g" README.md
-          sed -i "s|.*|$FORM|g" README.md
-          sed -i "s|.*|@${{ github.actor }}|g" README.md
-
-      - name: Commit and Push
+          # Save new count
+          echo "$NEW_COUNT" > cat-stats.txt
+          
+          echo "current_count=$CURRENT_COUNT" >> $GITHUB_OUTPUT
+          echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
+          
+          echo "✅ Pet count updated: $CURRENT_COUNT -> $NEW_COUNT"
+      
+      - name: Determine cat evolution
+        id: evolution
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          NEW_COUNT=${{ steps.update_count.outputs.new_count }}
+          
+          # Determine mood, form, and GIF based on count
+          if [ $NEW_COUNT -ge 200 ]; then
+            MOOD="Proud"
+            FORM="Majestic Lion"
+            CAT_GIF="https://media.giphy.com/media/l0HlMPcbD4jdARjRC/giphy.gif"
+          elif [ $NEW_COUNT -ge 100 ]; then
+            MOOD="Joyful"
+            FORM="Happy Cat"
+            CAT_GIF="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif"
+          elif [ $NEW_COUNT -ge 50 ]; then
+            MOOD="Content"
+            FORM="Adult Cat"
+            CAT_GIF="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"
+          elif [ $NEW_COUNT -ge 20 ]; then
+            MOOD="Playful"
+            FORM="Young Cat"
+            CAT_GIF="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+          else
+            MOOD="Sleepy"
+            FORM="Kitten"
+            CAT_GIF="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+          fi
+          
+          echo "mood=$MOOD" >> $GITHUB_OUTPUT
+          echo "form=$FORM" >> $GITHUB_OUTPUT
+          echo "cat_gif=$CAT_GIF" >> $GITHUB_OUTPUT
+          
+          echo "🐱 Cat evolved to: $FORM ($MOOD)"
+      
+      - name: Update README
+        run: |
+          NEW_COUNT=${{ steps.update_count.outputs.new_count }}
+          MOOD="${{ steps.evolution.outputs.mood }}"
+          FORM="${{ steps.evolution.outputs.form }}"
+          CAT_GIF="${{ steps.evolution.outputs.cat_gif }}"
+          
+          # Escape special characters for sed
+          CAT_GIF_ESCAPED=$(echo "$CAT_GIF" | sed 's/[&/\]/\\&/g')
+          MOOD_ESCAPED=$(echo "$MOOD" | sed 's/[&/\]/\\&/g')
+          FORM_ESCAPED=$(echo "$FORM" | sed 's/[&/\]/\\&/g')
+          
+          # Update the badges by replacing the entire badge URL
+          
+          # Update Mood badge
+          sed -i "s|https://img.shields.io/badge/😊_Mood-[^-]*-FF6B9D|https://img.shields.io/badge/😊_Mood-${MOOD_ESCAPED}-FF6B9D|g" README.md
+          
+          # Update Pets badge
+          sed -i "s|https://img.shields.io/badge/🐾_Pets-[^-]*-4ECDC4|https://img.shields.io/badge/🐾_Pets-${NEW_COUNT}-4ECDC4|g" README.md
+          
+          # Update Form badge
+          sed -i "s|https://img.shields.io/badge/✨_Form-[^-]*-FFD93D|https://img.shields.io/badge/✨_Form-${FORM_ESCAPED}-FFD93D|g" README.md
+          
+          # Update the cat GIF
+          sed -i "s|<img src=\"https://media.giphy.com/media/[^\"]*\" width=\"350\" alt=\"Cute Cat GIF\"/>|<img src=\"$CAT_GIF_ESCAPED\" width=\"350\" alt=\"Cute Cat GIF\"/>|g" README.md
+          
+          echo "✅ README updated successfully"
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
           git add README.md cat-stats.txt
-          git commit -m "🐾 Pet count updated to $NEW_COUNT"
+          git commit -m "🐾 Cat petted by @${{ github.event.issue.user.login }}! (Pet #${{ steps.update_count.outputs.new_count }})"
           git push
-
-      - name: Close Issue
-        run: gh issue close ${{ github.event.issue.number }} --comment "Thanks for the pet, @${{ github.actor }}!"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          echo "✅ Changes committed and pushed"
+      
+      - name: Close issue with comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const newCount = ${{ steps.update_count.outputs.new_count }};
+            const mood = '${{ steps.evolution.outputs.mood }}';
+            const form = '${{ steps.evolution.outputs.form }}';
+            const username = context.payload.issue.user.login;
+            
+            let message = `## 🐾 Thank you for petting the cat, @${username}!\n\n`;
+            message += `The cat is now **${mood.toLowerCase()}** and has been petted **${newCount} times**!\n\n`;
+            
+            // Add milestone messages
+            if (newCount === 20) {
+              message += `### 🎉 Milestone Reached!\nThe kitten has grown into a **Young Cat**! 🐱\n\n`;
+            } else if (newCount === 50) {
+              message += `### 🎉 Milestone Reached!\nThe cat has matured into an **Adult Cat**! 😺\n\n`;
+            } else if (newCount === 100) {
+              message += `### 🎉 Milestone Reached!\nThe cat has evolved into a **Happy Cat**! 😸\n\n`;
+            } else if (newCount === 200) {
+              message += `### 🎉 ULTIMATE Milestone!\nThe cat has transformed into a **Majestic Lion**! 🦁👑\n\nThis is the final evolution - the cat has reached its ultimate form!\n\n`;
+            }
+            
+            message += `Current form: **${form}**\n\n`;
+            message += `Check out the updated README to see the cat's new state! 🎮`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: message
+            });
+            
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              state: 'closed'
+            });
