@@ -15,7 +15,7 @@ jobs:
 
       - name: Update Cat Logic
         run: |
-          # 1. Get current count
+          # 1. Get current count from file
           COUNT=$(cat cat-stats.txt || echo 0)
           NEW_COUNT=$((COUNT + 1))
           echo $NEW_COUNT > cat-stats.txt
@@ -26,11 +26,12 @@ jobs:
           if [ $NEW_COUNT -gt 50 ]; then MOOD="Extremely Happy ✨"; FORM="Large Cat"; fi
           if [ $NEW_COUNT -gt 20 ]; then MOOD="Vibing 😎"; FORM="Teenager Cat"; fi
           
-          # 3. Update README using | as a delimiter to avoid regex errors
-          sed -i "s|Pets Received: <b>.*</b> |Pets Received: <b>$NEW_COUNT</b> |" README.md
-          sed -i "s|Mood: <b>.*</b> |Mood: <b>$MOOD</b> |" README.md
-          sed -i "s|Current Form: <b>.*</b> |Current Form: <b>$FORM</b> |" README.md
-          sed -i "s|_Last Love from: .*_ |_Last Love from: @${{ github.actor }}_ |" README.md
+          # 3. Update README using the markers
+          # This replaces everything between the comments
+          sed -i "s|.*|$NEW_COUNT|" README.md
+          sed -i "s|.*|$MOOD|" README.md
+          sed -i "s|.*|$FORM|" README.md
+          sed -i "s|.*|@${{ github.actor }}|" README.md
 
       - name: Commit and Push
         run: |
