@@ -5,5 +5,5 @@
     <img src="https://img.shields.io/badge/✋-PET_THE_CAT-blueviolet?style=for-the-badge" alt="Pet the cat"/>
   </a>
   <br>
-  The cat has been petted <b>1</b> times.
+  The cat has been petted <b>2</b> times.
 </p>
