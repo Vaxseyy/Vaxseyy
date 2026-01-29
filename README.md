@@ -136,40 +136,6 @@
 
 <br>
 
-## 🚀 **ABOUT ME**
-
-<br>
-
-<!-- Tech Stack with Colorful Icons -->
-<img src="https://skillicons.dev/icons?i=js,ts,react,nodejs,python,java,cpp,git,docker,vscode,figma,firebase&perline=6&theme=dark" />
-
-<br><br>
-
-<!-- Stats Cards with Gradient -->
-<img src="https://github-readme-stats.vercel.app/api?username=Vaxseyy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6366F1&icon_color=4ECDC4&text_color=FFFFFF&ring_color=FF6B9D" height="170" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Vaxseyy&theme=tokyonight&hide_border=true&background=0D1117&stroke=6366F1&ring=4ECDC4&fire=FF6B9D&currStreakLabel=FFFFFF" height="170" />
-
-<br><br>
-
-<!-- Top Languages -->
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vaxseyy&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6366F1&text_color=FFFFFF" height="170" />
-
-<br><br>
-
-<!-- Activity Graph -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Vaxseyy&custom_title=Vaxseyy's%20Contribution%20Graph&bg_color=0D1117&color=6366F1&line=4ECDC4&point=FF6B9D&area_color=6366F1&title_color=FFFFFF&area=true" width="95%" />
-
-<br><br>
-
-<!-- Trophies -->
-<img src="https://github-profile-trophy.vercel.app/?username=Vaxseyy&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" width="95%" />
-
-<br><br>
-
----
-
-<br>
-
 ## 🔗 **CONNECT WITH ME**
 
 <br>
