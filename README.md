@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=70d6ff&height=150&section=header&text=Vaxseyy's%20Cat%20Cafe&fontSize=50&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=70d6ff&height=150&section=header&text=Aditya's%20Cat%20Cafe&fontSize=50&animation=fadeIn" />
 </p>
 
 <div align="center">
@@ -18,14 +18,6 @@
 > "Today I was petted by a kind stranger. I think I might grow soon..."
 
 </div>
-
----
-
-### 🛠️ How it Works
-This cat is powered by **GitHub Actions**. Every time you click the button:
-1. An **Issue** is automatically created.
-2. A **Bot** detects the issue, updates the counter, and closes the issue.
-3. The cat's **Mood** and **Form** change based on the total number of pets!
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=70d6ff&height=60&section=footer" width="100%"/>
